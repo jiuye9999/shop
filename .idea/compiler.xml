@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shop-web" />
+        <module name="shop-dao" />
+        <module name="shop-service" />
+        <module name="shop-domain" />
+        <module name="shop-util" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shopweb" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="shop-dao" options="-parameters" />
+      <module name="shop-domain" options="-parameters" />
+      <module name="shop-service" options="-parameters" />
+      <module name="shop-util" options="-parameters" />
+      <module name="shop-web" options="-parameters" />
+    </option>
+  </component>
+</project>

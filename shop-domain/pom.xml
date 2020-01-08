@@ -12,6 +12,7 @@
     <artifactId>shop-domain</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.xz.shop</groupId>
             <artifactId>shop-common</artifactId>

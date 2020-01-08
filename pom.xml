@@ -14,6 +14,7 @@
         <module>shop-dao</module>
         <module>shop-domain</module>
         <module>shop-util</module>
+        <module>shop-common</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

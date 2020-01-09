@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="60">
+    <!--变量配置-->
+    <Properties>
+        <!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
+        <!-- %logger{36} 表示 Logger 名字最长36个字符 -->
+        <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+
+        <!--        <项目名称>-->
+        <property name="FILE_NAME" value="shop"/>
+        <!-- 定义日志存储的路径 -->
+        <property name="FILE_PATH" value="/log/${FILE_NAME}/logs"/>
+        <!-- 每个文件大小， 线上推荐50M -->
+        <property name="log_size">50 MB</property>
+        <!-- 日志文件最大个数 建议100/200 即可 一个应用一个日志保留10G -->
+        <property name="log_file_count">200</property>
+        <!-- 日志级别 -->
+        <property name="log_level">DEBUG</property>
+        <property name="all_log_level">DEBUG</property>
+        <property name="encoding">UTF-8</property>
+    </Properties>
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+        </console>
+        <RollingFile name="all" fileName="${FILE_PATH}/all/${FILE_NAME}-all.log"
+                     filePattern="${FILE_PATH}/all/${FILE_NAME}-all-%d{yyyy-MM-dd}_%i.log">
+            <ThresholdFilter level="${all_log_level}" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="${patternLayout}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="500MB"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <logger name="org.mybatis" level="${log_level}" additivity="false">
+            <AppenderRef ref="all"/>
+        </logger>
+        <logger name="com.xz.shop" level="${log_level}" additivity="false">
+            <AppenderRef ref="all"/>
+        </logger>
+    </loggers>
+    <root level="${log_level}">
+        <AppenderRef ref="all"/>
+        <AppenderRef ref="Console"/>
+    </root>
+</Configuration>

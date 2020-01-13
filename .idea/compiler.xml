@@ -12,6 +12,7 @@
         <module name="shop-service" />
         <module name="shop-domain" />
         <module name="shop-dao" />
+        <module name="shop-rabbitmq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="shop-common" options="-parameters" />
       <module name="shop-dao" options="-parameters" />
       <module name="shop-domain" options="-parameters" />
+      <module name="shop-rabbitmq" options="-parameters" />
       <module name="shop-service" options="-parameters" />
       <module name="shop-util" options="-parameters" />
       <module name="shop-web" options="-parameters" />

@@ -15,6 +15,7 @@
         <module>shop-domain</module>
         <module>shop-util</module>
         <module>shop-common</module>
+        <module>shop-rabbitmq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -71,6 +72,12 @@
         <dependency> <!-- 引入log4j2依赖 -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+<!--        <rabbitmq>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>1.5.2.RELEASE</version>
         </dependency>
     </dependencies>
 
